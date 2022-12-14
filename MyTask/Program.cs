@@ -29,6 +29,7 @@ do
     Console.WriteLine("*****************************************");
     Console.WriteLine("Note:\n>> Add Sample Data-\n Use when file is empty or not created " +
         "\n When running program for first time \n This feature will erase all previous data in file and load sample data\n");
+    Console.WriteLine("File will be saved in \"projectfolder\"\\bin\\Debug\\net6.0");
     Sel= MyTaskIO.ReadSel("Task", 5);
 
     List<TaskData> MyTask = new List<TaskData>(); // Creating Task List
