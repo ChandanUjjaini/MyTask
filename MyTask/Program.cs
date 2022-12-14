@@ -15,17 +15,21 @@ using System.Text.RegularExpressions;
 int Sel;
 
 List<TaskData> TaskList = new List<TaskData>();
-
-
 do
 {
-
+    
     Console.WriteLine("*****************************************");
     Console.WriteLine("* Welcome to My Task App \t\t*");
     Console.WriteLine("*****************************************");
-    Console.WriteLine("* Show task List\t- 1\t\t*\n* Add New Task\t\t- 2\t\t*\n* Edit Task\t\t- 3\t\t*\n* Save and Exit\t\t- 4\t\t*");
+    Console.WriteLine("* Show Task List\t- 1\t\t*\n* " +
+                      "Add New Task\t\t- 2\t\t*\n* " +
+                      "Edit Task\t\t- 3\t\t*\n* " +
+                      "Add Sample Data\t- 4\t\t*\n* " +
+                      "Exit\t\t\t- 5\t\t*");
     Console.WriteLine("*****************************************");
-    Sel= MyTaskIO.ReadSel("Selection", 4);
+    Console.WriteLine("Note:\n>> Add Sample Data-\n Use when file is empty or not created " +
+        "\n When running program for first time \n This feature will erase all previous data in file and load sample data\n");
+    Sel= MyTaskIO.ReadSel("Task", 5);
 
     List<TaskData> MyTask = new List<TaskData>(); // Creating Task List
 
@@ -35,7 +39,7 @@ do
             {
                 // Display Tasks
                 Console.Clear();
-                TaskOp.Output();
+                TaskOp.Display();
                 break;
             }
         case 2:
@@ -43,19 +47,28 @@ do
                 // Code to Display Tasks
                 Console.Clear();
                 TaskOp.Input(TaskList);
-                TaskOp.WriteToFile(TaskList);
+               
                 break;
             }
         case 3:
             {
                 // Code to Display asset
                 Console.Clear();
-                Console.WriteLine("Edit Task");
+                TaskOp.EditTask(TaskList);
+
+                break;
+            }
+        case 4:
+            {
+                // Code to Display asset
+                Console.Clear();
+                TaskOp.SeedData();
+                TaskOp.Display();
 
                 break;
             }
     }
-} while (Sel != 4);
-Console.ReadLine();
+} while (Sel != 5);
+
 
 

@@ -10,17 +10,18 @@ namespace MyTask
     {
         public static string ReadData(String read) // Common code to read data from console
         {
-            Console.Write($"Please Enter {read}: ");
+            Console.Write($"Please Enter your {read}: ");
             String Data = Console.ReadLine();
             Data = Data.Trim();
             return Data;
         }
 
         // Common code to print data to console
-        public static void PrintData(string Title, DateOnly DueDate, string Status, string Project)
+        public static void PrintData(string Id,string Title, DateOnly DueDate, string Status, string Project)
         {
-            Console.WriteLine(String.Format("{0,-10}", Title.PadRight(12) + DueDate.ToString().PadRight(20) + Status.PadRight(20)
-                    + Project));
+        
+            Console.WriteLine(String.Format("{0,-10}",Id.PadRight(3) + Title.PadRight(20) + DueDate.ToString().PadRight(20) + Status.PadRight(20)
+                    + Project.PadRight(13) + "|" ));
         }
 
         internal static void ErrorMessage(String data) // Common code to display error message
